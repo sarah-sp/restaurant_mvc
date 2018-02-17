@@ -37,8 +37,7 @@ public class Model {
 		kitchen = new Kitchen();
 		bar = new Bar();
 		tables = new ArrayList<Table>();
-		tables.add(new Table(1));
-		tables.add(new Table(2));
+		
 		
 		menuFood = new ArrayList<Food>();
 		menuDrink = new ArrayList<Drink>();
@@ -50,10 +49,12 @@ public class Model {
 		bartender = new Bartender();
 		staff.add(bartender);
 		waiters = new ArrayList<Waiter>();
+
 		Waiter w = new Waiter("Sasa");
 		waiters.add(w);
 		staff.add(w);
 		
+
 		customers = new ArrayList<Customer>();
 	}
 	
@@ -90,27 +91,53 @@ public class Model {
 	}
 	
 	public void simulate() {
-		Customer c1;
 		
-		for(Waiter w: waiters) {
+		/*
+		 * OBJECT CREATION 
+		 */
+		Waiter waiter = new Waiter("Sasa", kitchen, bar);
+		Table table = new Table(1);
+		Customer customer = new Customer(waiter);
+		
+		tables.add(table);
+		customers.add(customer);
 			
-			c1 = new Customer(w);
-			customers.add(c1);
-			
-			for(Table t: tables) {
-				
-				if(!t.isOccuppied()) {
-					
-					t.setUp(w, c1);
-					
-					Order o = new Order(t.getNum(), c1, w);
-					o.addItem(new Food("spska"), 5);
-					
-					c1.makeOrder(o);
-				}
-			}
+		
+		/*
+		 * CUSTOMER IS ASSIGNED TABLE
+		 */
+		
+		if(!table.isOccuppied()) {
+			table.setUp(waiter, customer);
 		}
 		
+		System.out.println(" === CUSTOMER ASSIGNED: table_" + table.getNum() + " === ");
+		
+		/*
+		 * CUSTOMER CREATES ORDER
+		 */
+		Order o = new Order(table.getNum(), customer, waiter);
+		o.addItem(new Food("spska"), 5);
+
+		customer.makeOrder(o); //results in kitchen acquiring the order
+		
+		/*
+		 * CUSTOMER RECIEVES DRINKS
+		 */
+		
+		/*
+		 * CUSTOMER RECIEVES FOOD
+		 */
+		
+		/*
+		 * CUSTOMER PAYS
+		 */
+		
+		/*
+		 * CUSTOMER LEAVES
+		 */
+		
+
 		
 		
 	}

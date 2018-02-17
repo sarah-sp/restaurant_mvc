@@ -33,14 +33,13 @@ public class Order {
 		return items;
 	}
 	
-	public HashMap<Item,Integer> getFood() {
+	public HashMap<Item, Integer> getFood() {
 		
 		HashMap<Item, Integer> food = new HashMap<Item, Integer>();
 		
 		for(Item i : items.keySet()){
 			if(i instanceof Food){
 				food.put(i, items.get(i));
-				System.out.println("GETFOOD:" + i.getName());
 			}
 		}
 		return food;

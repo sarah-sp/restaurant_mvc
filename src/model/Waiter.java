@@ -1,5 +1,7 @@
 package model;
 
+import java.util.HashMap;
+
 public class Waiter extends Staff {
 
 	private String id;
@@ -7,11 +9,11 @@ public class Waiter extends Staff {
 	private Bar bar;
 	private Kitchen kitchen;
 	
-	public Waiter(String id){
+	public Waiter(String id, Kitchen kitchen, Bar bar){
 		this.id = id;
 		this.numOfTables = 0;
-		bar = new Bar();
-		kitchen = new Kitchen();
+		this.bar = bar;
+		this.kitchen = kitchen;
 	}
 	
 	public String getID(){
@@ -38,9 +40,7 @@ public class Waiter extends Staff {
 	}
 
 	public void sendOrder(Order o) {
-		bar.getDrinks(o.getDrinks());
-		
-		kitchen.getFood(o.getFood());
-		
+	
+		kitchen.addOrder(o);
 	}
 }
