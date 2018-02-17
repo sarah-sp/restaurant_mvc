@@ -7,6 +7,10 @@ public class Food extends Item {
 		super(name, token);
 		
 	}
+	
+	public Food(String name) {
+		super(name);
+	}
 
 
 }

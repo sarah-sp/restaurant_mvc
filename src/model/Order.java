@@ -40,6 +40,7 @@ public class Order {
 		for(Item i : items.keySet()){
 			if(i instanceof Food){
 				food.put(i, items.get(i));
+				System.out.println("GETFOOD:" + i.getName());
 			}
 		}
 		return food;
@@ -52,6 +53,7 @@ public class Order {
 		for(Item i : items.keySet()){
 			if(i instanceof Drink){
 				drinks.put(i, items.get(i));
+				System.out.println("GETDRINKS:" + i.getName());
 			}
 		}
 		return drinks;

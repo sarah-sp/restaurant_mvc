@@ -36,6 +36,10 @@ public class Table {
 		return w;
 	}
 	
+	public boolean isOccuppied() {
+		return isOccuppied;
+	}
+	
 	public void setCustomer(Customer c){
 		this.c = c;
 	}
