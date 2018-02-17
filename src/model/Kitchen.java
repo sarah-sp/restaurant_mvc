@@ -1,17 +1,30 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Kitchen extends Departament {
 
-	public void getFood(HashMap<Item, Integer> food) {
-		System.out.println("Food:");
+	public ArrayList<Order> orders;
+	
+	public Kitchen() {
+		orders = new ArrayList<Order>();
+	}
+	
+	public void addOrder(Order o) {
+		orders.add(o);
 		
-		for(Item d: food.keySet()) {
+		System.out.println("========== ORDER IN KITCHEN ==========");
+		System.out.println("Waiter: " + o.getWaiter().getID());
+		System.out.println("Food: ");
+		
+		for(Item d: o.getFood().keySet()) {
 			
-			System.out.println(d.getName() + " " + food.get(d));
+			System.out.println(d.getName() + " " + o.getFood().get(d));
 		}
 		
+		System.out.println("======================================");
+
 	}
 
 }
