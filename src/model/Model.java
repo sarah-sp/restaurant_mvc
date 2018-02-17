@@ -49,12 +49,7 @@ public class Model {
 		bartender = new Bartender();
 		staff.add(bartender);
 		waiters = new ArrayList<Waiter>();
-
-		Waiter w = new Waiter("Sasa");
-		waiters.add(w);
-		staff.add(w);
 		
-
 		customers = new ArrayList<Customer>();
 	}
 	
