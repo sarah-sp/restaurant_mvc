@@ -19,12 +19,20 @@ public class ResPanel extends JPanel{
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, ResFrame.WIDTH, ResFrame.HEIGHT);
 		
-		g.setColor(Color.RED);
+		if(model.getKitchen() != null) {
+			g.setColor(Color.RED);
+			g.fillRect(10, 10, 400, 150);
+		}
+		
+		if(model.getBar() != null) {
+			g.setColor(Color.RED);
+			g.fillRect(ResFrame.WIDTH-10-200, 10, 200, 100);
+		}
 	}
 	
 	
 	public void paint (Graphics g) {
-		
+		drawScene(g);
 	}
 
 }

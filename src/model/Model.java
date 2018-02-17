@@ -15,11 +15,12 @@ public class Model {
 	 * Menu items
 	 */
 	private ArrayList<Food> menuFood;
-	private ArrayList<Drink>	menuDrink;
+	private ArrayList<Drink> menuDrink;
 	
 	/*
 	 * Staff Members
 	 */
+	private ArrayList<Staff> staff;
 	private Chef chef;
 	private Bartender bartender;
 	private ArrayList<Waiter> waiters;
@@ -43,11 +44,15 @@ public class Model {
 		menuDrink = new ArrayList<Drink>();
 		addDefaultMenuItems();
 		
-		
+		staff = new ArrayList<Staff>();
 		chef = new Chef();
+		staff.add(chef);
 		bartender = new Bartender();
+		staff.add(bartender);
 		waiters = new ArrayList<Waiter>();
-		waiters.add(new Waiter("Sasa"));
+		Waiter w = new Waiter("Sasa");
+		waiters.add(w);
+		staff.add(w);
 		
 		customers = new ArrayList<Customer>();
 	}
@@ -60,8 +65,30 @@ public class Model {
 
 	}
 	
+	public Kitchen getKitchen() {
+		return kitchen;
+	}
 	
+	public Bar getBar() {
+		return bar;
+	}
+	
+	public ArrayList<Table> getTables() {
+		return tables;
+	}
 
+	public ArrayList<Food> getFood() {
+		return menuFood;
+	}
+	
+	public ArrayList<Drink> getDrinks() {
+		return menuDrink;
+	}
+	
+	public ArrayList<Staff> getStaff() {
+		return staff;
+	}
+	
 	public void simulate() {
 		Customer c1;
 		
